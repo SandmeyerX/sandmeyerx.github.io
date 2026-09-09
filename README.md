@@ -1,3 +1,7 @@
+<p align="center">
+  <strong>🌐 语言 | Language:</strong> 简体中文 | <a href="README_en.md">English</a>
+</p>
+
 # AstroPaper 📄
 
 ![AstroPaper](public/default-og.jpg)
@@ -7,31 +11,31 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
-AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme is designed and crafted based on [my personal blog](https://satnaing.dev/blog).
+AstroPaper 是一个极简、响应式、无障碍且 SEO 友好的 Astro 博客主题。该主题基于[我的个人博客](https://satnaing.dev/blog)设计和制作。
 
-Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
+阅读[博客文章](https://astro-paper.pages.dev/posts/)或查看 [README 文档部分](#-documentation)了解更多信息。
 
-## 🔥 Features
+## 🔥 功能特性
 
-- [x] type-safe markdown
-- [x] super fast performance
-- [x] accessible (Keyboard/VoiceOver)
-- [x] responsive (mobile ~ desktops)
-- [x] SEO-friendly
-- [x] light & dark mode
-- [x] static search ([Pagefind](https://pagefind.app/))
-- [x] draft posts & pagination
-- [x] sitemap & rss feed
-- [x] MDX support
-- [x] collapsible table of contents
-- [x] followed best practices
-- [x] highly customizable
-- [x] dynamic OG image generation for blog posts ([Blog Post](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/))
-- [x] i18n ready
+- [x] 类型安全的 Markdown
+- [x] 极快的性能
+- [x] 无障碍访问（键盘/VoiceOver）
+- [x] 响应式设计（移动端 ~ 桌面端）
+- [x] SEO 友好
+- [x] 浅色与深色模式
+- [x] 静态搜索（[Pagefind](https://pagefind.app/)）
+- [x] 草稿文章与分页
+- [x] 站点地图与 RSS 订阅
+- [x] MDX 支持
+- [x] 可折叠目录
+- [x] 遵循最佳实践
+- [x] 高度可定制
+- [x] 博客文章动态 OG 图片生成（[博客文章](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/)）
+- [x] 支持国际化（i18n）
 
-_Note: I've tested screen-reader accessibility of AstroPaper using **VoiceOver** on Mac and **TalkBack** on Android. I couldn't test all other screen-readers out there. However, accessibility enhancements in AstroPaper should be working fine on others as well._
+_注意：我已经使用 Mac 上的 **VoiceOver** 和 Android 上的 **TalkBack** 测试了 AstroPaper 的屏幕阅读器无障碍访问性。我无法测试所有其他的屏幕阅读器。但是，AstroPaper 中的无障碍增强功能在其他阅读器上也应该能正常工作。_
 
-## ✅ Lighthouse Score
+## ✅ Lighthouse 评分
 
 <p align="center">
   <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fastro-paper.pages.dev%2F&form_factor=desktop">
@@ -39,14 +43,14 @@ _Note: I've tested screen-reader accessibility of AstroPaper using **VoiceOver**
   </a>
 </p>
 
-## 🚀 Project Structure
+## 🚀 项目结构
 
-Inside of AstroPaper, you'll see the following folders and files:
+在 AstroPaper 中，你会看到以下文件夹和文件：
 
 ```bash
 /
 ├── public/
-│   ├── pagefind/          # auto-generated on build
+│   ├── pagefind/          # 构建时自动生成
 │   ├── favicon.svg
 │   └── default-og.jpg
 ├── src/
@@ -68,37 +72,38 @@ Inside of AstroPaper, you'll see the following folders and files:
 │   ├── utils/
 │   ├── config.ts
 │   └── content.config.ts
-├── astro-paper.config.ts  # user-defined configurations
+├── astro-paper.config.ts  # 用户自定义配置
 └── astro.config.ts
 ```
 
-All blog posts are stored in the `src/content/posts/` directory. You can organise posts into subdirectories — the subdirectory name becomes part of the post URL.
+所有博客文章都存储在 `src/content/posts/` 目录中。你可以将文章组织到子目录中——子目录名称会成为文章 URL 的一部分。
 
-## 📖 Documentation
+## 📖 文档
 
-Documentation can be read in two formats\_ _markdown_ & _blog post_.
+文档可以通过两种格式阅读：_Markdown_ 和 _博客文章_。
 
-- Configuration - [markdown](src/content/posts/how-to-configure-astropaper-theme.md) | [blog post](https://astro-paper.pages.dev/posts/how-to-configure-astropaper-theme/)
-- Add Posts - [markdown](src/content/posts/adding-new-post.md) | [blog post](https://astro-paper.pages.dev/posts/adding-new-posts-in-astropaper-theme/)
-- Customize Color Schemes - [markdown](src/content/posts/customizing-astropaper-theme-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/)
-- Predefined Color Schemes - [markdown](src/content/posts/predefined-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/predefined-color-schemes/)
+- 集成 Giscus 评论 - [Markdown](src/content/posts/how-to-integrate-giscus-comments_zh.md)
+- 在博客文章中添加 LaTeX 公式 - [Markdown](src/content/posts/how-to-add-latex-equations-in-blog-posts_zh.md)
+- 通过 Git Hooks 设置日期 - [Markdown](src/content/posts/setting-dates-via-git-hooks_zh.md)
+- 更新依赖 - [Markdown](src/content/posts/how-to-update-dependencies_zh.md)
+- 动态 OG 图片 - [Markdown](src/content/posts/dynamic-og-images_zh.md)
 
-## 💻 Tech Stack
+## 💻 技术栈
 
-**Main Framework** - [Astro](https://astro.build/)  
-**Type Checking** - [TypeScript](https://www.typescriptlang.org/)  
-**Styling** - [TailwindCSS](https://tailwindcss.com/)  
-**UI/UX** - [Figma Design File](https://www.figma.com/community/file/1356898632249991861)  
-**Static Search** - [Pagefind](https://pagefind.app/)  
-**Icons** - [Tablers](https://tabler-icons.io/)  
-**Code Formatting** - [Prettier](https://prettier.io/)  
-**Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)  
-**Linting** - [ESLint](https://eslint.org)  
-**Dynamic OG images** - [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) + [Astro Fonts](https://docs.astro.build/en/guides/fonts/)
+**主要框架** - [Astro](https://astro.build/)  
+**类型检查** - [TypeScript](https://www.typescriptlang.org/)  
+**样式** - [TailwindCSS](https://tailwindcss.com/)  
+**UI/UX** - [Figma 设计文件](https://www.figma.com/community/file/1356898632249991861)  
+**静态搜索** - [Pagefind](https://pagefind.app/)  
+**图标** - [Tablers](https://tabler-icons.io/)  
+**代码格式化** - [Prettier](https://prettier.io/)  
+**部署** - [Cloudflare Pages](https://pages.cloudflare.com/)  
+**代码检查** - [ESLint](https://eslint.org)  
+**动态 OG 图片** - [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) + [Astro Fonts](https://docs.astro.build/en/guides/fonts/)
 
-## 👨🏻‍💻 Running Locally
+## 👨🏻‍💻 本地运行
 
-You can start using this project locally by running the following command in your desired directory:
+你可以在所需目录中运行以下命令来本地启动此项目：
 
 ```bash
 # pnpm
@@ -114,19 +119,19 @@ yarn create astro --template satnaing/astro-paper
 bun create astro@latest -- --template satnaing/astro-paper
 ```
 
-Then start the project by running the following commands:
+然后运行以下命令来启动项目：
 
 ```bash
-# install dependencies if you haven't done so in the previous step.
+# 如果你之前没有安装依赖，请先安装
 pnpm install
 
-# start running the project
+# 启动项目
 pnpm dev
 ```
 
-## Google Site Verification (optional)
+## Google 站点验证（可选）
 
-You can add your [Google Site Verification HTML tag](https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag) by setting `site.googleVerification` in `astro-paper.config.ts`:
+你可以通过在 `astro-paper.config.ts` 中设置 `site.googleVerification` 来添加 [Google 站点验证 HTML 标签](https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag)：
 
 ```ts file="astro-paper.config.ts"
 export default defineAstroPaperConfig({
@@ -138,29 +143,29 @@ export default defineAstroPaperConfig({
 });
 ```
 
-> See [this discussion](https://github.com/satnaing/astro-paper/discussions/334#discussioncomment-10139247) for adding AstroPaper to the Google Search Console.
+> 参考[此讨论](https://github.com/satnaing/astro-paper/discussions/334#discussioncomment-10139247)了解如何将 AstroPaper 添加到 Google Search Console。
 
-## 🧞 Commands
+## 🧞 命令
 
-All commands are run from the root of the project, from a terminal:
+所有命令都在项目根目录下的终端中运行：
 
-| Command          | Action                                                                                                                           |
+| 命令             | 说明                                                                                                                             |
 | :--------------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm install`   | Installs dependencies                                                                                                            |
-| `pnpm dev`       | Starts local dev server at `localhost:4321`                                                                                      |
-| `pnpm build`     | Type-checks, builds the site, runs Pagefind indexing, and copies the index to `public/pagefind/`                                 |
-| `pnpm preview`   | Preview your build locally, before deploying                                                                                     |
-| `pnpm sync`      | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
-| `pnpm astro ...` | Run CLI commands like `astro add`, `astro check`                                                                                 |
+| `pnpm install`   | 安装依赖                                                                                                                         |
+| `pnpm dev`       | 在 `localhost:4321` 启动本地开发服务器                                                                                            |
+| `pnpm build`     | 类型检查、构建站点、运行 Pagefind 索引，并将索引复制到 `public/pagefind/`                                                         |
+| `pnpm preview`   | 在部署前本地预览构建结果                                                                                                         |
+| `pnpm sync`      | 为所有 Astro 模块生成 TypeScript 类型。[了解更多](https://docs.astro.build/en/reference/cli-reference/#astro-sync)。              |
+| `pnpm astro ...` | 运行 CLI 命令，如 `astro add`、`astro check`                                                                                     |
 
-## ✨ Feedback & Suggestions
+## ✨ 反馈与建议
 
-If you have any suggestions/feedback, you can contact me via [my email](mailto:satnaingdev+astropaper@gmail.com). Alternatively, feel free to open an issue if you find bugs or want to request new features.
+如果你有任何建议/反馈，可以通过[我的邮箱](mailto:satnaingdev+astropaper@gmail.com)联系我。或者，如果你发现 bug 或想请求新功能，请随时提交 issue。
 
-## 📜 License
+## 📜 许可证
 
-Licensed under the MIT License, Copyright © 2026
+基于 MIT 许可证授权，版权所有 © 2026
 
 ---
 
-Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻 and [contributors](https://github.com/satnaing/astro-paper/graphs/contributors).
+由 [Sat Naing](https://satnaing.dev) 👨🏻‍💻 和[贡献者](https://github.com/satnaing/astro-paper/graphs/contributors)用 🤍 制作。
