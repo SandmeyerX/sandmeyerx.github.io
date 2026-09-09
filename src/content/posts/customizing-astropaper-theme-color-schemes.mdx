@@ -2,25 +2,24 @@
 author: Sat Naing
 pubDatetime: 2022-09-25T15:20:35Z
 modDatetime: 2026-05-17T04:57:06.476Z
-title: Customizing AstroPaper theme color schemes
+title: 自定义 AstroPaper 主题配色方案
 featured: false
 draft: false
 tags:
   - color-schemes
   - docs
 description:
-  How you can enable/disable light & dark mode; and customize color schemes
-  of AstroPaper theme.
+  如何启用/禁用浅色和深色模式；以及如何自定义 AstroPaper 主题的配色方案。
 ---
 import ResponsiveTable from '@/components/ResponsiveTable.astro';
 
-This guide covers how to enable or disable light and dark mode, and how to customize the color scheme for the entire site.
+本指南涵盖如何启用或禁用浅色和深色模式，以及如何自定义整个站点的配色方案。
 
 ## Table of contents
 
-## Enable/disable light & dark mode
+## 启用/禁用浅色和深色模式
 
-AstroPaper theme includes light and dark mode by default. This default behavior can be disabled in `astro-paper.config.ts`:
+AstroPaper 主题默认包含浅色和深色模式。可以在 `astro-paper.config.ts` 中禁用此默认行为：
 
 ```ts file="astro-paper.config.ts"
 export default defineAstroPaperConfig({
@@ -32,14 +31,14 @@ export default defineAstroPaperConfig({
 });
 ```
 
-To disable `light & dark mode`, set `features.lightAndDarkMode` to `false`. When disabled, the site will use only the light color scheme defined in `src/styles/theme.css`.
+要禁用 `light & dark mode`，将 `features.lightAndDarkMode` 设置为 `false`。禁用后，站点将仅使用 `src/styles/theme.css` 中定义的浅色配色方案。
 
-## Customize color schemes
+## 自定义配色方案
 
-Both light and dark color schemes of AstroPaper theme are defined in `src/styles/theme.css`.
+AstroPaper 主题的浅色和深色配色方案都在 `src/styles/theme.css` 中定义。
 
 ```css file="src/styles/theme.css"
-/* Light theme values */
+/* 浅色主题值 */
 :root,
 [data-theme="light"] {
   --background: #fdfdfd;
@@ -51,7 +50,7 @@ Both light and dark color schemes of AstroPaper theme are defined in `src/styles
   --border: #ece9e9;
 }
 
-/* Dark theme values */
+/* 深色主题值 */
 [data-theme="dark"] {
   --background: #212737;
   --foreground: #eaedf3;
@@ -63,27 +62,27 @@ Both light and dark color schemes of AstroPaper theme are defined in `src/styles
 }
 ```
 
-The `:root` and `[data-theme="light"]` selectors define the light color scheme, while `[data-theme="dark"]` defines the dark color scheme.
+`:root` 和 `[data-theme="light"]` 选择器定义浅色配色方案，而 `[data-theme="dark"]` 定义深色配色方案。
 
-To customize your own color scheme, specify your light colors inside `:root, [data-theme="light"]`, and your dark colors inside `[data-theme="dark"]`.
+要自定义你自己的配色方案，请在 `:root, [data-theme="light"]` 中指定浅色，在 `[data-theme="dark"]` 中指定深色。
 
-Here is a detailed explanation of each color property:
+以下是每个颜色属性的详细说明：
 
 <ResponsiveTable variant="minimal" class="max-sm:-mx-4 [&_td]:first-of-type:text-nowrap">
 
-| Color Property        | Definition & Usage                                                    |
-| --------------------- | --------------------------------------------------------------------- |
-| `--background`        | Primary color of the website. Usually the main background.            |
-| `--foreground`        | Secondary color of the website. Usually the text color.               |
-| `--accent`            | Accent color. Used for links, hover states, and interactive elements. |
-| `--accent-foreground` | Foreground color displayed on top of `--accent` backgrounds.          |
-| `--muted`             | Muted background color. Used for cards, tags, and hover states.       |
-| `--muted-foreground`  | Text color displayed on top of `--muted` backgrounds.                 |
-| `--border`            | Border color. Used for dividers and visual separation.                |
+| 颜色属性              | 定义与用途                                                         |
+| --------------------- | ------------------------------------------------------------------ |
+| `--background`        | 网站的主颜色。通常是主要背景色。                                   |
+| `--foreground`        | 网站的次要颜色。通常是文本颜色。                                   |
+| `--accent`            | 强调色。用于链接、悬停状态和交互元素。                             |
+| `--accent-foreground` | 显示在 `--accent` 背景上的前景色。                                 |
+| `--muted`             | 柔和背景色。用于卡片、标签和悬停状态。                             |
+| `--muted-foreground`  | 显示在 `--muted` 背景上的文本颜色。                                |
+| `--border`            | 边框颜色。用于分隔线和视觉分隔。                                   |
 
 </ResponsiveTable>
 
-Here is an example of changing the light color scheme:
+以下是更改浅色配色方案的示例：
 
 ```css file="src/styles/theme.css"
 /* ... */
@@ -100,4 +99,4 @@ Here is an example of changing the light color scheme:
 /* ... */
 ```
 
-> Check out some [predefined color schemes](https://astro-paper.pages.dev/posts/predefined-color-schemes/) AstroPaper has already crafted for you.
+> 查看 AstroPaper 已经为你准备好的一些[预定义配色方案](https://astro-paper.pages.dev/posts/predefined-color-schemes/)。

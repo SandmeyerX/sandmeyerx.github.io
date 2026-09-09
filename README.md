@@ -82,11 +82,14 @@ _注意：我已经使用 Mac 上的 **VoiceOver** 和 Android 上的 **TalkBack
 
 文档可以通过两种格式阅读：_Markdown_ 和 _博客文章_。
 
-- 集成 Giscus 评论 - [Markdown](src/content/posts/how-to-integrate-giscus-comments_zh.md)
-- 在博客文章中添加 LaTeX 公式 - [Markdown](src/content/posts/how-to-add-latex-equations-in-blog-posts_zh.md)
-- 通过 Git Hooks 设置日期 - [Markdown](src/content/posts/setting-dates-via-git-hooks_zh.md)
-- 更新依赖 - [Markdown](src/content/posts/how-to-update-dependencies_zh.md)
-- 动态 OG 图片 - [Markdown](src/content/posts/dynamic-og-images_zh.md)
+- 集成 Giscus 评论 - [Markdown](src/content/posts/how-to-integrate-giscus-comments.md)
+- 在博客文章中添加 LaTeX 公式 - [Markdown](src/content/posts/how-to-add-latex-equations-in-blog-posts.md)
+- 通过 Git Hooks 设置日期 - [Markdown](src/content/posts/setting-dates-via-git-hooks.md)
+- 更新依赖 - [Markdown](src/content/posts/how-to-update-dependencies.md)
+- 动态 OG 图片 - [Markdown](src/content/posts/dynamic-og-images.md)
+- 在 AstroPaper 中添加新文章 - [Markdown](src/content/posts/adding-new-post.mdx)
+- 配置 AstroPaper 主题 - [Markdown](src/content/posts/how-to-configure-astropaper-theme.mdx)
+- 自定义配色方案 - [Markdown](src/content/posts/customizing-astropaper-theme-color-schemes.mdx)
 
 ## 💻 技术栈
 
