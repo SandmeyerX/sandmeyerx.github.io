@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "LXGW WenKai Mono";
+  src: url("/fonts/lxgw-wenkai-mono.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LXGW WenKai Mono fallback: Courier New";
+  src: local("Courier New");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  size-adjust: 83.3198%;
+  ascent-override: 111.3781%;
+  descent-override: 28.9247%;
+}
+
+:root {
+  --font-lxgw-wenkai: "LXGW WenKai Mono", "LXGW WenKai Mono fallback: Courier New", monospace;
+}

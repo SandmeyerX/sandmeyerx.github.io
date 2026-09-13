@@ -6,6 +6,9 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer base {
+  html {
+    font-size: 18px;
+  }
   * {
     @apply border-border outline-accent/75;
     scrollbar-width: auto;
