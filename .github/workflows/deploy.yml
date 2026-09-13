@@ -31,6 +31,14 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install fonttools
+        run: pip install fonttools brotli
+
       - name: Install dependencies
         run: pnpm install
 
