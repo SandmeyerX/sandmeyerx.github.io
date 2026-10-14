@@ -1,5 +1,12 @@
 packages:
   - "."
+
+overrides:
+  # Keep astro's bundled shiki and @shikijs/transformers on one version so they
+  # don't pull two copies of @shikijs/types (which breaks `astro check`).
+  shiki: 4.5.0
+  "@shikijs/transformers": 4.5.0
+
 allowBuilds:
   esbuild: true
   sharp: true
