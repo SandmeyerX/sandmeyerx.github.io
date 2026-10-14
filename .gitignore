@@ -26,6 +26,9 @@ pnpm-debug.log*
 # pagefind
 public/pagefind
 
+# ftp deploy state
+.ftp-deploy-sync-state.json
+
 # pnpm
 .pnpm-store
 

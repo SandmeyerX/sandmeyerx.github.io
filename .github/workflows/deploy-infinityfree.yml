@@ -1,0 +1,127 @@
+name: Deploy to InfinityFree
+
+# Uploads the Astro build output (dist/) to InfinityFree over FTP.
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   FTP_HOST      ftpupload.net  (use ftp.infinityfree.com if your network/DNS blocks it)
+#   FTP_USERNAME  your InfinityFree FTP username
+#   FTP_PASSWORD  your InfinityFree FTP password
+#   FTP_DIR       remote folder, e.g. /htdocs/ for the account's first domain,
+#                 or /sandmx.freedev.app/htdocs/ for an additional domain.
+#                 Defaults to /htdocs/ when the secret is not set.
+#
+# InfinityFree has no Git/SSH deploy, so FTP is the only channel.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would change, do not upload anything"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: infinityfree
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install fonttools
+        run: pip install fonttools brotli
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      # InfinityFree silently deletes files above its size limits (and bans
+      # blocked types), so fail the run before uploading anything broken.
+      - name: Validate dist against InfinityFree limits
+        shell: bash
+        run: |
+          fail=0
+
+          echo "Largest files in dist/:"
+          find dist -type f -printf '%s\t%p\n' | sort -rn | head -10 |
+            awk -F'\t' '{ printf "%9.2f KB  %s\n", $1 / 1024, $2 }'
+
+          while IFS= read -r -d '' f; do
+            size=$(stat -c%s "$f")
+            case "$(basename "$f")" in
+              .htaccess)               limit=10240   ;;  # 10 KB
+              *.html|*.htm|*.php|*.js) limit=1048576 ;;  # 1 MB
+              *)                       limit=10485760 ;; # 10 MB
+            esac
+            if [ "$size" -gt "$limit" ]; then
+              echo "::error file=$f::$(numfmt --to=iec "$size") exceeds the InfinityFree limit of $(numfmt --to=iec "$limit")"
+              fail=1
+            fi
+          done < <(find dist -type f -print0)
+
+          blocked=$(find dist -type f \( -iname '*.exe' -o -iname '*.pdf' \))
+          if [ -n "$blocked" ]; then
+            echo "::error::Blocked file types found (.exe/.pdf are deleted and can suspend the account):"
+            echo "$blocked"
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            echo "Refusing to deploy - fix the files above first."
+            exit 1
+          fi
+          echo "OK: dist/ is within InfinityFree limits."
+
+      # Without a cached state file every run re-uploads the whole site.
+      - name: Cache FTP deploy state
+        uses: actions/cache@v4
+        with:
+          path: .ftp-deploy-sync-state.json
+          key: ftp-deploy-state-${{ github.ref_name }}
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp # switch to ftps (+ security: loose) if your host requires it
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_DIR || '/htdocs/' }}
+          state-name: .ftp-deploy-sync-state.json
+          dry-run: ${{ inputs.dry_run == true }}
+          log-level: standard
+          timeout: 90000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
